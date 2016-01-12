@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+        <link href="lib/ionic/css/MyCss.css" rel="stylesheet">
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body ng-app="app">
+    <ion-pane ng-controller="MyController">
+
+        <ion-side-menus>
+            <ion-side-menu-content>
+
+                <ion-header-bar class="bar-stable">
+
+                    <button class="button button-icon icon ion-navicon" ng-click="toggelLeft()"></button>
+
+                    <label class="item item-input Search_Bar">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" placeholder="Search" ng-model="model.search.$">
+                    </label>
+                    <img src="img/test3.PNG" class="h1 title 24Logo Header_Menu_Icon">
+
+
+                </ion-header-bar>
+
+                <ion-tabs class="tabs-positive tabs-icon-top">
+
+                    <ion-tab title="&#x627;&#x644;&#x623;&#x643;&#x62B;&#x631; &#x642;&#x631;&#x627;&#x621;&#x629;" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+
+                        <ion-view view-title="Main">
+                            <ion-content class="padding">
+                            <!--  Arabic Main Article  -->
+                                <ion-list>
+                                    <h1 class="item item-divider">Arabic</h1>
+                                    <ion-item ng-repeat="article in model.ArabicMain">
+
+                                        <div class="item item-divider">
+                                            {{ article.Title}}
+                                        </div>
+                                        <div class="item item-divider">
+                                            <img src="{{article.BigImageUrl}}" class="img_small">
+                                        </div>
+                                        <div class="item item-text-wrap">
+                                            {{ article.Title}}
+                                        </div>
+                                        <div class="item item-divider item item-text-wrap">
+                                            <i>المصدر:{{ article.TheSource}}</i>
+                                        </div>
+                                    </ion-item>
+                                    <!--  Arabic Articles -->
+                                    <div class="row">
+                                        <ion-item ng-repeat="article in model.ArabicArticles">
+                                            <div class="item item-divider">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider">
+                                                <img src="{{article.ImageUrl}}" class="img_small">
+                                            </div>
+                                            <div class="item item-text-wrap">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider item item-text-wrap">
+                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                            </div>
+                                        </ion-item>
+                                    </div>
+                                </ion-list>
+                                <!--  Business Main Article -->
+                                <ion-list>
+                                    <h1 class="item item-divider">Business</h1>
+
+
+                                    <ion-list>
+                                        <ion-item ng-repeat="article in model.BusinessMain">
+
+                                            <div class="item item-divider">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider">
+                                                <img src="{{article.BigImageUrl}}" class="img_small">
+                                            </div>
+                                            <div class="item item-text-wrap">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider item item-text-wrap">
+                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                            </div>
+                                        </ion-item>
+                                        <!--  Business Articles -->
+
+                                        <div class="row">
+                                            <ion-item ng-repeat="article in model.BusinessArticles">
+                                                <div class="item item-divider">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider">
+                                                    <img src="{{article.ImageUrl}}" class="img_small">
+                                                </div>
+                                                <div class="item item-text-wrap">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider item item-text-wrap">
+                                                    <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                                </div>
+                                            </ion-item>
+                                        </div>
+                                    </ion-list>
+                                    <!--  Health Main Article -->
+
+                                    <ion-list>
+                                        <h1 class="item item-divider">Health</h1>
+
+
+                                        <ion-list>
+                                            <ion-item ng-repeat="article in model.HealthMain">
+
+                                                <div class="item item-divider">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider">
+                                                    <img src="{{article.BigImageUrl}}" class="img_small">
+                                                </div>
+                                                <div class="item item-text-wrap">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider item item-text-wrap">
+                                                    <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                </div>
+                                            </ion-item>
+                                            <!--  Health Articles -->
+
+                                            <div class="row">
+                                                <ion-item ng-repeat="article in model.HealthArticles">
+                                                    <div class="item item-divider">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider">
+                                                        <img src="{{article.ImageUrl}}" class="img_small">
+                                                    </div>
+                                                    <div class="item item-text-wrap">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider item item-text-wrap">
+                                                        <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                    </div>
+                                                </ion-item>
+                                            </div>
+                                        </ion-list>
+
+                                        <!--  Culture Main Article  -->
+
+                                        <ion-list>
+                                            <h1 class="item item-divider">Culture</h1>
+
+                                            <ion-item ng-repeat="article in model.CultureMain">
+
+                                                <div class="item item-divider">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider">
+                                                    <img src="{{article.BigImageUrl}}" class="img_small">
+                                                </div>
+                                                <div class="item item-text-wrap">
+                                                    {{ article.Title}}
+                                                </div>
+                                                <div class="item item-divider item item-text-wrap">
+                                                    <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                </div>
+                                            </ion-item>
+                                            <!--  Culture Articles -->
+
+                                            <div class="row">
+                                                <ion-item ng-repeat="article in model.CultureArticles">
+                                                    <div class="item item-divider">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider">
+                                                        <img src="{{article.ImageUrl}}" class="img_small">
+                                                    </div>
+                                                    <div class="item item-text-wrap">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider item item-text-wrap">
+                                                        <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                                    </div>
+                                                </ion-item>
+                                            </div>
+                                        </ion-list>
+                                        <!--  Directions Main Article -->
+
+                                        <ion-list>
+                                            <h1 class="item item-divider">Directions</h1>
+
+
+                                            <ion-list>
+                                                <ion-item ng-repeat="article in model.DirectionsMain">
+
+                                                    <div class="item item-divider">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider">
+                                                        <img src="{{article.BigImageUrl}}" class="img_small">
+                                                    </div>
+                                                    <div class="item item-text-wrap">
+                                                        {{ article.Title}}
+                                                    </div>
+                                                    <div class="item item-divider item item-text-wrap">
+                                                        <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                    </div>
+                                                </ion-item>
+                                                <!--  Directions Articles -->
+
+                                                <div class="row">
+                                                    <ion-item ng-repeat="article in model.DirectionsArticles">
+                                                        <div class="item item-divider">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider">
+                                                            <img src="{{article.ImageUrl}}" class="img_small">
+                                                        </div>
+                                                        <div class="item item-text-wrap">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider item item-text-wrap">
+                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                                        </div>
+                                                    </ion-item>
+                                                </div>
+                                            </ion-list>
+                                            <!--  International Main Article -->
+
+                                            <ion-list>
+                                                <h1 class="item item-divider">International</h1>
+
+
+                                                <ion-list>
+                                                    <ion-item ng-repeat="article in model.InternationalMain">
+
+                                                        <div class="item item-divider">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider">
+                                                            <img src="{{article.BigImageUrl}}" class="img_small">
+                                                        </div>
+                                                        <div class="item item-text-wrap">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider item item-text-wrap">
+                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                        </div>
+                                                    </ion-item>
+                                                    <!--  International Articles -->
+
+                                                    <div class="row">
+                                                        <ion-item ng-repeat="article in model.InternationalArticles">
+                                                            <div class="item item-divider">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider">
+                                                                <img src="{{article.ImageUrl}}" class="img_small">
+                                                            </div>
+                                                            <div class="item item-text-wrap">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider item item-text-wrap">
+                                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                            </div>
+                                                        </ion-item>
+                                                    </div>
+                                                </ion-list>
+
+                                                <!--  LifeStyle Main Article  -->
+
+                                                <ion-list>
+                                                    <h1 class="item item-divider">LifeStyle</h1>
+
+                                                    <ion-item ng-repeat="article in model.LifeStyleMain">
+
+                                                        <div class="item item-divider">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider">
+                                                            <img src="{{article.BigImageUrl}}" class="img_small">
+                                                        </div>
+                                                        <div class="item item-text-wrap">
+                                                            {{ article.Title}}
+                                                        </div>
+                                                        <div class="item item-divider item item-text-wrap">
+                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                        </div>
+                                                    </ion-item>
+                                                    <!--  LifeStyle Articles -->
+
+                                                    <div class="row">
+                                                        <ion-item ng-repeat="article in model.LifeStyleArticles">
+                                                            <div class="item item-divider">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider">
+                                                                <img src="{{article.ImageUrl}}" class="img_small">
+                                                            </div>
+                                                            <div class="item item-text-wrap">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider item item-text-wrap">
+                                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                                            </div>
+                                                        </ion-item>
+                                                    </div>
+                                                </ion-list>
+                                                <!--  Technology Main Article -->
+
+                                                <ion-list>
+                                                    <h1 class="item item-divider">Technology</h1>
+
+
+                                                    <ion-list>
+                                                        <ion-item ng-repeat="article in model.TechnologyMain">
+
+                                                            <div class="item item-divider">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider">
+                                                                <img src="{{article.BigImageUrl}}" class="img_small">
+                                                            </div>
+                                                            <div class="item item-text-wrap">
+                                                                {{ article.Title}}
+                                                            </div>
+                                                            <div class="item item-divider item item-text-wrap">
+                                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                            </div>
+                                                        </ion-item>
+                                                        <!--  Technology Articles -->
+
+                                                        <div class="row">
+                                                            <ion-item ng-repeat="article in model.TechnologyArticles">
+                                                                <div class="item item-divider">
+                                                                    {{ article.Title}}
+                                                                </div>
+                                                                <div class="item item-divider">
+                                                                    <img src="{{article.ImageUrl}}" class="img_small">
+                                                                </div>
+                                                                <div class="item item-text-wrap">
+                                                                    {{ article.Title}}
+                                                                </div>
+                                                                <div class="item item-divider item item-text-wrap">
+                                                                    <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                                                </div>
+                                                            </ion-item>
+                                                        </div>
+                                                    </ion-list>
+                                                    <!--  Varitiess Main Article -->
+
+                                                    <ion-list>
+                                                        <h1 class="item item-divider">Varitiess</h1>
+
+
+                                                        <ion-list>
+                                                            <ion-item ng-repeat="article in model.VaritiessMain">
+
+                                                                <div class="item item-divider">
+                                                                    {{ article.Title}}
+                                                                </div>
+                                                                <div class="item item-divider">
+                                                                    <img src="{{article.BigImageUrl}}" class="img_small">
+                                                                </div>
+                                                                <div class="item item-text-wrap">
+                                                                    {{ article.Title}}
+                                                                </div>
+                                                                <div class="item item-divider item item-text-wrap">
+                                                                    <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                                </div>
+                                                            </ion-item>
+                                                            <!--  Varitiess Articles -->
+
+                                                            <div class="row">
+                                                                <ion-item ng-repeat="article in model.VaritiesArticles">
+                                                                    <div class="item item-divider">
+                                                                        {{ article.Title}}
+                                                                    </div>
+                                                                    <div class="item item-divider">
+                                                                        <img src="{{article.ImageUrl}}" class="img_small">
+                                                                    </div>
+                                                                    <div class="item item-text-wrap">
+                                                                        {{ article.Title}}
+                                                                    </div>
+                                                                    <div class="item item-divider item item-text-wrap">
+                                                                        <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                                    </div>
+                                                                </ion-item>
+                                                            </div>
+                                                        </ion-list>
+                                                        <!--  Youth Main Article -->
+
+                                                        <ion-list>
+                                                            <h1 class="item item-divider">Youth</h1>
+
+
+                                                            <ion-list>
+                                                                <ion-item ng-repeat="article in model.YouthMain">
+
+                                                                    <div class="item item-divider">
+                                                                        {{ article.Title}}
+                                                                    </div>
+                                                                    <div class="item item-divider">
+                                                                        <img src="{{article.BigImageUrl}}" class="img_small">
+                                                                    </div>
+                                                                    <div class="item item-text-wrap">
+                                                                        {{ article.Title}}
+                                                                    </div>
+                                                                    <div class="item item-divider item item-text-wrap">
+                                                                        <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{ article.TheSource}}</i>
+                                                                    </div>
+                                                                </ion-item>
+                                                                <!--  Youth Articles -->
+
+                                                                <div class="row">
+                                                                    <ion-item ng-repeat="article in model.YouthArticles">
+                                                                        <div class="item item-divider">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider">
+                                                                            <img src="{{article.ImageUrl}}" class="img_small">
+                                                                        </div>
+                                                                        <div class="item item-text-wrap">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider item item-text-wrap">
+                                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                                        </div>
+                                                                    </ion-item>
+                                                                </div>
+                                                            </ion-list>
+
+                                                            <ion-list>
+                                                                <!--  Sport Articles -->
+                                                                <h1 class="item item-divider">Sport</h1>
+                                                                <div class="row">
+                                                                    <ion-item ng-repeat="article in model.SportArticles">
+                                                                        <div class="item item-divider">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider">
+                                                                            <img src="{{article.ImageUrl}}" class="img_small">
+                                                                        </div>
+                                                                        <div class="item item-text-wrap">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider item item-text-wrap">
+                                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                                        </div>
+                                                                    </ion-item>
+                                                                </div>
+                                                            </ion-list>
+
+                                                            <ion-list>
+                                                                <!--  UAE Articles -->
+                                                                <h1 class="item item-divider">UAE</h1>
+                                                                <div class="row">
+                                                                    <ion-item ng-repeat="article in model.UAEArticles">
+                                                                        <div class="item item-divider">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider">
+                                                                            <img src="{{article.ImageUrl}}" class="img_small">
+                                                                        </div>
+                                                                        <div class="item item-text-wrap">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider item item-text-wrap">
+                                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                                        </div>
+                                                                    </ion-item>
+                                                                </div>
+                                                            </ion-list>
+
+                                                            <ion-list>
+                                                                <!--  Pictures Articles -->
+                                                                <h1 class="item item-divider">Pictures</h1>
+                                                                <div class="row">
+                                                                    <ion-item ng-repeat="article in model.Pictures">
+                                                                        <div class="item item-divider">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider">
+                                                                            <img src="{{article.ImageUrl}}" class="img_small">
+                                                                        </div>
+                                                                        <div class="item item-text-wrap">
+                                                                            {{ article.Title}}
+                                                                        </div>
+                                                                        <div class="item item-divider item item-text-wrap">
+                                                                            <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                                                        </div>
+                                                                    </ion-item>
+                                                                </div>
+                                                            </ion-list>
+
+
+                                                        </ion-list></ion-list></ion-list></ion-list></ion-list></ion-list></ion-list></ion-content>
+                        </ion-view>
+                    </ion-tab>
+
+                    <ion-tab title="&#x623;&#x62E;&#x631; &#x627;&#x644;&#x623;&#x62E;&#x628;&#x627;&#x631;" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+
+                        <ion-view view-title="Latest">
+                            <ion-content>
+                                <ion-list>
+                                    <h1 class="item item-divider">&#x631;&#x64A;&#x627;&#x636;&#x64A;</h1>
+                                    <div class="row">
+                                        <ion-item ng-repeat="article in model.HealthArticles">
+                                            <div class="item item-divider">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider">
+                                                <img src="{{article.ImageUrl}}" class="img_small">
+                                            </div>
+                                            <div class="item item-text-wrap">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider item item-text-wrap">
+                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{contact.TheSource}}</i>
+                                            </div>
+                                        </ion-item>
+                                    </div>
+                                </ion-list>
+                            </ion-content>
+                        </ion-view>
+                    </ion-tab>
+
+                    <ion-tab title="&#x627;&#x644;&#x631;&#x626;&#x64A;&#x633;&#x64A;&#x629;" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+                        <ion-view view-title="Hot">
+                            <ion-content>
+                                <ion-list>
+                                    <h1 class="item item-divider">&#x639;&#x631;&#x628;&#x649;</h1>
+                                    <div class="row">
+                                        <ion-item ng-repeat="article in model.ArabicArticles">
+                                            <div class="item item-divider">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider">
+                                                <img src="{{article.ImageUrl}}" class="img_small">
+                                            </div>
+                                            <div class="item item-text-wrap">
+                                                {{ article.Title}}
+                                            </div>
+                                            <div class="item item-divider item item-text-wrap">
+                                                <i>&#x627;&#x644;&#x645;&#x635;&#x62F;&#x631;:{{article.TheSource}}</i>
+                                            </div>
+                                        </ion-item>
+                                    </div>
+                                </ion-list>
+                            </ion-content>
+                        </ion-view>
+
+                    </ion-tab>
+                    <ion-tab title="&#x639;&#x627;&#x62C;&#x644;" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+                        <ion-view>
+                            <ion-content>
+                                <ion-slide-box>
+                                    <ion-slide ng-repeat="pic in model.SliderArticles">
+                                            <img class="img_small" src="{{pic.ImageUrl}}">
+                                    </ion-slide>
+                                </ion-slide-box>
+                            </ion-content>
+                        </ion-view>
+                    </ion-tab>
+
+
+                </ion-tabs>
+            </ion-side-menu-content>
+
+
+            <ion-side-menu side="left">
+                <ion-list>  
+                    <ion-item ng-click="login()">Home</ion-item>
+                </ion-list>
+                <ion-list>  
+                    <ion-item>Home2</ion-item>
+                </ion-list>
+                <ion-list>  
+                    <ion-item>Home3</ion-item>
+                </ion-list>
+
+            </ion-side-menu>
+
+
+
+        </ion-side-menus>
+
+    </ion-pane>
+</body>
+</html>
